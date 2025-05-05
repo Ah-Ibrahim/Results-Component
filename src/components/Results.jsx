@@ -1,8 +1,4 @@
 import './Results.css';
-import reactionIcon from '../assets/images/icon-reaction.svg';
-import memoryIcon from '../assets/images/icon-memory.svg';
-import verbalIcon from '../assets/images/icon-verbal.svg';
-import visualIcon from '../assets/images/icon-visual.svg';
 
 function LeftSide({ score, scoreText }) {
 	return (
@@ -20,52 +16,24 @@ function LeftSide({ score, scoreText }) {
 	);
 }
 
-function RightSide({ reaction, memory, verbal, visual }) {
+function RightSide({ Data }) {
+	const stats = Data.map((item, index) => (
+		<div key={index} className="block">
+			<div className="block__type">
+				<img src={item.icon} alt="Reaction Icon" />
+				{item.category}
+			</div>
+			<div className="block__result">
+				<div className="score">{item.score}</div>
+				<div className="range">/ 100</div>
+			</div>
+		</div>
+	));
+
 	return (
 		<div className="side side--right">
 			<div className="side__heading">Summary</div>
-			<div className="side__stats">
-				<div className="block">
-					<div className="block__type">
-						<img src={reactionIcon} alt="Reaction Icon" />
-						Reaction
-					</div>
-					<div className="block__result">
-						<div className="score">{reaction}</div>
-						<div className="range">/ 100</div>
-					</div>
-				</div>
-				<div className="block">
-					<div className="block__type">
-						<img src={memoryIcon} alt="Memory Icon" />
-						Memory
-					</div>
-					<div className="block__result">
-						<div className="score">{memory}</div>
-						<div className="range">/ 100</div>
-					</div>
-				</div>
-				<div className="block">
-					<div className="block__type">
-						<img src={verbalIcon} alt="Verbal Icon" />
-						Verbal
-					</div>
-					<div className="block__result">
-						<div className="score">{verbal}</div>
-						<div className="range">/ 100</div>
-					</div>
-				</div>
-				<div className="block">
-					<div className="block__type">
-						<img src={visualIcon} alt="Visual Icon" />
-						Visual
-					</div>
-					<div className="block__result">
-						<div className="score">{visual}</div>
-						<div className="range">/ 100</div>
-					</div>
-				</div>
-			</div>
+			<div className="side__stats">{stats}</div>
 			<button className="side__btn">Continue</button>
 		</div>
 	);
