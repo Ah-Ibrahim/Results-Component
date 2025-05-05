@@ -1,4 +1,4 @@
-# Frontend Mentor - Results Component
+# Frontend Mentor - Results Component (FIRST REACT PROJECT)
 
 ![Design preview for the Results Component](./design/desktop-design.jpg)
 
