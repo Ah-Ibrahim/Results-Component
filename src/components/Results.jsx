@@ -7,7 +7,7 @@ import visualIcon from '../assets/images/icon-visual.svg';
 function LeftSide({ score, scoreText }) {
 	return (
 		<div className="side side--left">
-			<div className="side__heading">You Result</div>
+			<div className="side__heading">Your Result</div>
 			<div className="score-circle">
 				<div className="score-circle__main">{score}</div>
 				<div className="score-circle__range">of 100</div>
@@ -66,14 +66,14 @@ function RightSide({ reaction, memory, verbal, visual }) {
 					</div>
 				</div>
 			</div>
-			<div className="side__btn">Continue</div>
+			<button className="side__btn">Continue</button>
 		</div>
 	);
 }
 
 function Results(props) {
 	return (
-		<div className="side side--right">
+		<div className="container">
 			<LeftSide {...props} />
 			<RightSide {...props} />
 		</div>
